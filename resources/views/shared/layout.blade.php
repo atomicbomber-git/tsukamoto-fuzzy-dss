@@ -11,5 +11,6 @@
 <body>
     @yield('body-main')
     @yield('body-bottom')
+    @yield('extra-scripts')
 </body>
 </html>
