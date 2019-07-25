@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVariabelsTable extends Migration
+class CreateFungsiParametersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,17 @@ class CreateVariabelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('variabels', function (Blueprint $table) {
+        Schema::create('fungsi_parameters', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string("nama")->unique();
+            $table->unsignedBigInteger('parameter_id');
+
+            $table->string('syarat');
+            $table->string('formula');
+
+            $table->foreign('parameter_id')
+                ->references('id')
+                ->on('parameters');
+
             $table->timestamps();
         });
     }
@@ -27,6 +35,6 @@ class CreateVariabelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('variabels');
+        Schema::dropIfExists('fungsi_parameters');
     }
 }

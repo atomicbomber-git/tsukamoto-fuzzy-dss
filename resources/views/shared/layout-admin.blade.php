@@ -11,11 +11,11 @@
 @section('body-main')
     @include('shared.navbar-admin')
     <div class="md:flex md:w-3/4 md:mx-auto">
-        <div id="sidebar" class="hidden md:block md:w-3/12 pt-5">
+        <div id="sidebar" class="hidden md:block md:w-2/12 pt-5">
             @include('shared.sidebar-admin')
         </div>
 
-        <div class="md:w-9/12 pt-5">
+        <div class="md:w-10/12 pt-5">
             <div class="px-3">
                 @yield('content')
             </div>

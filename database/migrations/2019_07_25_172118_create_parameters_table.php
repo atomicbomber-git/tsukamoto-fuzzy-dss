@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVariabelsTable extends Migration
+class CreateParametersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,16 @@ class CreateVariabelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('variabels', function (Blueprint $table) {
+        Schema::create('parameters', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string("nama")->unique();
+            $table->unsignedBigInteger('variabel_id');
+            $table->string('nama');
             $table->timestamps();
+
+            $table->unique(['variabel_id', 'nama']);
+            $table->foreign('variabel_id')
+                ->references('id')
+                ->on('variabels');
         });
     }
 
@@ -27,6 +33,6 @@ class CreateVariabelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('variabels');
+        Schema::dropIfExists('parameters');
     }
 }

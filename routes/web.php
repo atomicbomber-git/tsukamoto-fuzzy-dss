@@ -12,13 +12,17 @@ use App\Http\Controllers\VariabelController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', function () {
+    return redirect()->route('variabel.index');
+});
 
 Route::group(['prefix' => '/variabel', 'as' => 'variabel.'], function() {
     Route::get('/index', [VariabelController::class, 'index'])->name('index');
