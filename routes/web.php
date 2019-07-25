@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\VariabelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +19,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => '/variabel', 'as' => 'variabel.'], function() {
+    Route::get('/index', [VariabelController::class, 'index'])->name('index');
+    Route::get('/create', [VariabelController::class, 'create'])->name('create');
+    Route::post('/store', [VariabelController::class, 'store'])->name('store');
+    Route::get('/edit/{variabel}', [VariabelController::class, 'edit'])->name('edit');
+    Route::post('/update/{variabel}', [VariabelController::class, 'update'])->name('update');
+    Route::post('/delete/{variabel}', [VariabelController::class, 'delete'])->name('delete');
+});
