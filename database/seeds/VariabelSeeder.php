@@ -71,6 +71,55 @@ class VariabelSeeder extends Seeder
                 ],
             ]
         ],
+        [
+            "nama" => "Istirahat",
+            "parameters" => [
+                "Istirahat" => [
+                    ["syarat" => "x <= 2", "formula" => "0",],
+                    ["syarat" => "2 < x < 4", "formula" => "(4 - x) / (4 - 2)",],
+                    ["syarat" => "x >= 4", "formula" => "0"]
+                ],
+                "Ringan" => [
+                    ["syarat" => "x <= 3", "formula" => "0"],
+                    ["syarat" => "3 < x <= 4", "formula" => "(x - 3) / (4 - 3)",],
+                    ["syarat" => "4 < x <= 5", "formula" => "(5 - x) / (5 - 4)"],
+                    ["syarat" => "x > 5", "formula" => "0"],
+                ],
+                "Sedang" => [
+                    ["syarat" => "x <= 4", "formula" => "0"],
+                    ["syarat" => "3 < x <= 4", "formula" => "(x - 3) / (4 - 3)",],
+                    ["syarat" => "4 < x <= 5", "formula" => "(5 - x) / (5 - 4)"],
+                    ["syarat" => "x > 8", "formula" => "0"],
+                ],
+                "Berat" => [
+                    ["syarat" => "x <= 7", "formula" => "0"],
+                    ["syarat" => "7 < x <= 8", "formula" => "(x - 7) / (8 - 7)",],
+                    ["syarat" => "8 < x <= 9", "formula" => "(9 - x) / (9 - 8)"],
+                    ["syarat" => "x > 9", "formula" => "0"],
+                ],
+                "Sangat Berat" => [
+                    ["syarat" => "x <= 8", "formula" => "0",],
+                    ["syarat" => "8 < x < 10", "formula" => "(x - 8) / (10 - 8)",],
+                    ["syarat" => "x >= 10", "formula" => "1"]
+                ],
+            ]
+        ],
+        [
+            "nama" => "Kalori Harian",
+            "parameters" => [
+                "Sedikit" => [
+                    ["syarat" => "x < 1300", "formula" => "1"],
+                    ["syarat" => "1300 <= x <= 2500", "formula" => "(2500 - x) / (2500 - 1300)"],
+                    ["syarat" => "x > 2500", "formula" => "0"],
+                ],
+
+                "Banyak" => [
+                    ["syarat" => "x < 1300", "formula" => "0"],
+                    ["syarat" => "1300 <= x <= 2500", "formula" => "(x - 1300) / (2500 - 1300)"],
+                    ["syarat" => "x > 2500", "formula" => "1"],
+                ],
+            ],
+        ]
     ];
 
     /**
