@@ -20,20 +20,20 @@
 
     <h1 class="text-5xl mb-5"> Parameter </h1>
 
-    <table class="w-full border">
+    <table class="border">
         <thead class="font-semibold bg-red-700 text-gray-100">
             <tr>
-                <th class="pl-1 text-center w-10"> # </th>
-                <th class="pl-3 text-left"> Nama </th>
-                <th class="pl-3 text-center"> Kendali </th>
+                <th class="px-1 text-center w-10"> # </th>
+                <th class="px-3 text-left"> Nama </th>
+                <th class="px-3 text-center"> Kendali </th>
             </tr>
         </thead>
         <tbody>
             @foreach ($variabel->parameters as $parameter)
             <tr>
-                <td class="border pl-1 py-1 text-center"> {{ $loop->iteration }} </td>
-                <td class="border pl-3 py-1"> {{ $parameter->nama }} </td>
-                <td class="border pl-3 py-1 text-center">
+                <td class="border px-1 py-1 text-center"> {{ $loop->iteration }} </td>
+                <td class="border px-3 py-1"> {{ $parameter->nama }} </td>
+                <td class="border px-3 py-1 text-center">
                     <a href="{{ route('parameter-fungsi.index', $parameter) }}" class="bg-teal-500 hover:bg-teal-700 text-white text-sm py-1 px-2 rounded">
                         Fungsi
                     </a>

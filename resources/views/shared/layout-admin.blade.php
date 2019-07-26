@@ -11,7 +11,7 @@
 @section('body-main')
     @include('shared.navbar-admin')
     <div class="md:flex md:w-3/4 md:mx-auto">
-        <div id="sidebar" class="hidden md:block md:w-2/12 pt-5">
+        <div id="sidebar" class="border-b pb-3 pl-3 hidden md:block md:pb-0 md:border-b-0 md:w-2/12 pt-5">
             @include('shared.sidebar-admin')
         </div>
 
