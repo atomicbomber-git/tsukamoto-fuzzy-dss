@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Parameter extends Model
 {
+    public function variabel()
+    {
+        return $this->belongsTo(Parameter::class);
+    }
+
     public function fungsi_parameters()
     {
         return $this->hasMany(FungsiParameter::class);

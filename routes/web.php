@@ -20,6 +20,10 @@ Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/home', function () {
+    return redirect()->route('variabel.index');
+})->name('home');
+
 Route::get('/', function () {
     return redirect()->route('variabel.index');
 });
@@ -31,4 +35,12 @@ Route::group(['prefix' => '/variabel', 'as' => 'variabel.'], function() {
     Route::get('/edit/{variabel}', [VariabelController::class, 'edit'])->name('edit');
     Route::post('/update/{variabel}', [VariabelController::class, 'update'])->name('update');
     Route::post('/delete/{variabel}', [VariabelController::class, 'delete'])->name('delete');
+});
+
+Route::group(['prefix' => '/variabel-parameter', 'as' => 'variabel-parameter.'], function() {
+    Route::get('/index/{variabel}', 'VariabelParameterController@index')->name('index');
+});
+
+Route::group(['prefix' => '/parameter-fungsi', 'as' => 'parameter-fungsi.'], function() {
+    Route::get('/index/{parameter}', 'ParameterFungsiController@index')->name('index');
 });

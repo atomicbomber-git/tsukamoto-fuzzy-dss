@@ -4,10 +4,10 @@
     </div>
     <ul class="pl-6">
         <li class="hover:bg-red-100">
-            <a href=""> Variabel </a>
+            <a href="{{ route('variabel.index') }}"> Variabel </a>
         </li>
         <li class="hover:bg-red-100">
-            <a href=""> Basis Kasus </a>
+            <a href=""> Rule </a>
         </li>
     </ul>
 </nav>

@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Variabel;
 
 class VariabelController extends Controller
 {
     public function index()
     {
-        return view('variabel.index');
+        $variabels = Variabel::query()
+            ->select("id", "nama")
+            ->get();
+
+        return view('variabel.index', compact("variabels"));
     }
 
     public function create()
