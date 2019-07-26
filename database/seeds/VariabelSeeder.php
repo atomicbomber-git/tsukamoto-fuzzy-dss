@@ -2,9 +2,6 @@
 
 use Illuminate\Database\Seeder;
 use App\Variabel;
-use App\Parameter;
-use App\FungsiParameter;
-
 class VariabelSeeder extends Seeder
 {
     const VARIABELS = [
