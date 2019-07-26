@@ -15,7 +15,7 @@
             @include('shared.sidebar-admin')
         </div>
 
-        <div class="md:w-10/12 pt-5">
+        <div class="md:w-10/12 pt-5 mb-10">
             <div class="px-3">
                 @yield('content')
             </div>

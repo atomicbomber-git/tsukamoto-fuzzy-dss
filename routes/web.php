@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\VariabelController;
+use App\Http\Controllers\RuleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,4 +44,12 @@ Route::group(['prefix' => '/variabel-parameter', 'as' => 'variabel-parameter.'],
 
 Route::group(['prefix' => '/parameter-fungsi', 'as' => 'parameter-fungsi.'], function() {
     Route::get('/index/{parameter}', 'ParameterFungsiController@index')->name('index');
+});
+
+Route::group(['prefix' => '/rule', 'as' => 'rule.'], function() {
+    Route::get('/index', [RuleController::class, 'index'])->name('index');
+});
+
+Route::group(['prefix' => '/kalkulasi', 'as' => 'kalkulasi.'], function() {
+    Route::get('/index', [KalkulasiController::class, 'index'])->name('index');
 });

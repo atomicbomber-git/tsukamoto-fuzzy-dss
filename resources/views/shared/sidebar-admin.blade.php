@@ -7,7 +7,7 @@
             <a href="{{ route('variabel.index') }}"> Variabel </a>
         </li>
         <li class="hover:bg-red-100">
-            <a href=""> Rule </a>
+            <a href="{{ route('rule.index') }}"> Rule </a>
         </li>
     </ul>
 </nav>

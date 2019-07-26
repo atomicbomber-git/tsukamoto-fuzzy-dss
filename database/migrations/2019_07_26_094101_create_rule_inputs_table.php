@@ -15,7 +15,17 @@ class CreateRuleInputsTable extends Migration
     {
         Schema::create('rule_inputs', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('rule_id');
+            $table->unsignedBigInteger('parameter_id');
             $table->timestamps();
+
+            $table->foreign('rule_id')
+                ->references('id')
+                ->on('rules');
+
+            $table->foreign('parameter_id')
+                ->references('id')
+                ->on('parameters');
         });
     }
 
