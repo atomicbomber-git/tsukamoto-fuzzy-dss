@@ -7,6 +7,15 @@ use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 class FungsiParameter extends Model
 {
+    public $fillable = [
+        "syarat", "formula"
+    ];
+
+    public function parameter()
+    {
+        return $this->belongsTo(Parameter::class);
+    }
+
     public function periksaSyarat($arguments)
     {
         return (new ExpressionLanguage())

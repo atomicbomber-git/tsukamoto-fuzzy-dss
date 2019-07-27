@@ -2,6 +2,9 @@
 use App\Http\Controllers\VariabelController;
 use App\Http\Controllers\KalkulasiController;
 use App\Http\Controllers\RuleController;
+use App\Parameter;
+use App\Http\Controllers\ParameterController;
+use App\Http\Controllers\FungsiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,11 +35,8 @@ Route::get('/', function () {
 
 Route::group(['prefix' => '/variabel', 'as' => 'variabel.'], function() {
     Route::get('/index', [VariabelController::class, 'index'])->name('index');
-    Route::get('/create', [VariabelController::class, 'create'])->name('create');
-    Route::post('/store', [VariabelController::class, 'store'])->name('store');
     Route::get('/edit/{variabel}', [VariabelController::class, 'edit'])->name('edit');
     Route::post('/update/{variabel}', [VariabelController::class, 'update'])->name('update');
-    Route::post('/delete/{variabel}', [VariabelController::class, 'delete'])->name('delete');
 });
 
 Route::group(['prefix' => '/variabel-parameter', 'as' => 'variabel-parameter.'], function() {
@@ -45,6 +45,16 @@ Route::group(['prefix' => '/variabel-parameter', 'as' => 'variabel-parameter.'],
 
 Route::group(['prefix' => '/parameter-fungsi', 'as' => 'parameter-fungsi.'], function() {
     Route::get('/index/{parameter}', 'ParameterFungsiController@index')->name('index');
+});
+
+Route::group(['prefix' => '/parameter', 'as' => 'parameter.'], function() {
+    Route::get('/edit/{parameter}', [ParameterController::class, 'edit'])->name('edit');
+    Route::post('/update/{parameter}', [ParameterController::class, 'update'])->name('update');
+});
+
+Route::group(['prefix' => '/fungsi', 'as' => 'fungsi.'], function() {
+    Route::get('/edit/{fungsi}', [FungsiController::class, 'edit'])->name('edit');
+    Route::post('/update/{fungsi}', [FungsiController::class, 'update'])->name('update');
 });
 
 Route::group(['prefix' => '/rule', 'as' => 'rule.'], function() {

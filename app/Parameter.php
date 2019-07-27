@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Parameter extends Model
 {
+    public $fillable = [
+        "nama"
+    ];
+
     public function variabel()
     {
         return $this->belongsTo(Variabel::class);
