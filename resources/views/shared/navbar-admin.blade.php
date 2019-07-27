@@ -1,4 +1,4 @@
-<nav class=" items-center bg-red-700 py-6">
+<nav class=" items-center bg-red-700 py-3">
     <div class="w-full px-5 md:w-3/4 md:px-0 md:mx-auto flex flex-wrap justify-between">
         <div class="flex items-center flex-shrink-0 text-white mr-6">
             <span class="font-semibold text-xl tracking-tight">

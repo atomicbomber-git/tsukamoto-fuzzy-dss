@@ -28,8 +28,14 @@
                 <td class="border px-1 py-1 text-center"> {{ $loop->iteration }} </td>
                 <td class="border px-3 py-1"> {{ $variabel->nama }} </td>
                 <td class="border px-3 py-1 text-center">
-                    <a href="{{ route('variabel-parameter.index', $variabel) }}" class="bg-teal-500 hover:bg-teal-700 text-white text-sm py-1 px-2 rounded">
+                    <a href="{{ route('variabel-parameter.index', $variabel) }}" class="inline-block  bg-teal-500 hover:bg-teal-700 text-white text-sm py-1 px-2 rounded">
                         Parameter
+                        <i class="fa fa-list-alt"></i>
+                    </a>
+
+                    <a href="{{ route('variabel.edit', $variabel) }}" class="inline-block  bg-gray-500 hover:bg-gray-700 text-white text-sm py-1 px-2 rounded">
+                        Ubah
+                        <i class="fa fa-pencil"></i>
                     </a>
                 </td>
             </tr>

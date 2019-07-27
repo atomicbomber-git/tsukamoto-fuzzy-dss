@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Variabel;
+use Illuminate\Validation\Rule;
 
 class VariabelController extends Controller
 {
@@ -16,23 +17,21 @@ class VariabelController extends Controller
         return view('variabel.index', compact("variabels"));
     }
 
-    public function create()
-    {
-    }
-
-    public function store()
-    {
-    }
-
     public function edit(Variabel $variabel)
     {
+        return view("variabel.edit", compact("variabel"));
     }
 
     public function update(Variabel $variabel)
     {
-    }
+        $data = $this->validate(request(), [
+            "nama" => ["required", "min:1", "max:100", Rule::unique("variabels")->ignore($variabel->id)],
+        ]);
 
-    public function delete(Variabel $variabel)
-    {
+        $variabel->update($data);
+
+        return back()
+            ->with("message-state", "success")
+            ->with("message-text", __("messages.update.success"));
     }
 }
