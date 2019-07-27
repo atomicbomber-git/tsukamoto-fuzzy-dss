@@ -25,7 +25,7 @@
         </ol>
     </nav>
 
-    <h1 class="text-5xl mb-5"> Fungsi </h1>
+    <h1 class="text-2xl font-bold mb-5"> Fungsi </h1>
 
     <div class="overflow-x-auto">
         <table class="border">

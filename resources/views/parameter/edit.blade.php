@@ -18,7 +18,7 @@
 
     @include('shared.alert')
 
-    <h1 class="text-5xl mb-5"> Ubah Parameter </h1>
+    <h1 class="text-2xl font-bold mb-5"> Ubah Parameter </h1>
 
     <div class="w-full max-w-md">
         <form method="POST" action="{{ route('parameter.update', $parameter) }}" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">

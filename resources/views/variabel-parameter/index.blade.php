@@ -18,7 +18,7 @@
         </ol>
     </nav>
 
-    <h1 class="text-5xl mb-5"> Parameter </h1>
+    <h1 class="text-2xl font-bold mb-5"> Parameter </h1>
 
     <table class="border">
         <thead class="font-semibold bg-red-700 text-gray-100">

@@ -16,7 +16,7 @@
         </ol>
     </nav>
 
-    <h1 class="text-5xl mb-5"> Hasil Kalkulasi </h1>
+    <h1 class="text-2xl font-bold mb-5"> Hasil Kalkulasi </h1>
 
 
     <table class="border">
