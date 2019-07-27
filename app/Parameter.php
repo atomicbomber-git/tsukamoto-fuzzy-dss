@@ -8,7 +8,7 @@ class Parameter extends Model
 {
     public function variabel()
     {
-        return $this->belongsTo(Parameter::class);
+        return $this->belongsTo(Variabel::class);
     }
 
     public function fungsi_parameters()
@@ -22,7 +22,7 @@ class Parameter extends Model
 
         $value = null;
         foreach ($this->fungsi_parameters as $fungsi_parameter) {
-            if ($fungsi_parameter->periksaRange($arguments)) {
+            if ($fungsi_parameter->periksaSyarat(["x" => 55])) {
                 $value = $fungsi_parameter->evaluasiNilai($arguments);
                 break;
             }
@@ -30,6 +30,26 @@ class Parameter extends Model
 
         if ($value === null) {
             throw new \Exception("No matching FungsiParameter syarat found.");
+        }
+
+        return $value;
+    }
+
+    public function selesaikanPersamaan($nilai)
+    {
+        $this->loadMissing("fungsi_parameters:id,parameter_id,syarat,formula");
+
+        $value = null;
+        foreach ($this->fungsi_parameters as $fungsi_parameter) {
+            try {
+                $value = $fungsi_parameter->selesaikanPersamaan($nilai);
+            } catch (\Throwable $exception) {
+                /* Ignore exceptions */
+            }
+        }
+
+        if ($value === null) {
+            throw new \Exception("Failed to solve equation.");
         }
 
         return $value;

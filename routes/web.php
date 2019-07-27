@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\VariabelController;
+use App\Http\Controllers\KalkulasiController;
 use App\Http\Controllers\RuleController;
 
 /*
@@ -51,5 +52,6 @@ Route::group(['prefix' => '/rule', 'as' => 'rule.'], function() {
 });
 
 Route::group(['prefix' => '/kalkulasi', 'as' => 'kalkulasi.'], function() {
-    Route::get('/index', [KalkulasiController::class, 'index'])->name('index');
+    Route::get('/show', [KalkulasiController::class, 'show'])->name('show');
+    Route::get('/create', [KalkulasiController::class, 'create'])->name('create');
 });

@@ -2,7 +2,7 @@
 @section('title', 'Fungsi')
 @section('content')
 
-    <nav class="bg-gray-100 p-3 rounded font-sans w-full">
+    <nav class="bg-gray-200 p-3 mb-5 rounded font-sans w-full">
         <ol class="list-reset flex flex-wrap text-grey-dark">
             <li>
                 <a href="{{ route('home') }}" class="text-blue font-bold"> {{ config('app.name') }} </a>

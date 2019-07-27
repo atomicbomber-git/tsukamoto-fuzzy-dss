@@ -9,5 +9,8 @@
         <li class="hover:bg-red-100">
             <a href="{{ route('rule.index') }}"> Rule </a>
         </li>
+        <li class="hover:bg-red-100">
+            <a href="{{ route('kalkulasi.create') }}"> Kalkulasi </a>
+        </li>
     </ul>
 </nav>
