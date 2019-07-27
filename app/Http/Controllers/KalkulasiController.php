@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Variabel;
 use App\Rule;
 
 class KalkulasiController extends Controller
@@ -22,7 +20,7 @@ class KalkulasiController extends Controller
             "aktivitas" => "required|numeric|gte:1,lte:20",
         ]);
 
-        $indeks_massa_tubuh = pow($data["berat_badan"] / $data["tinggi_badan"], 2);
+        $indeks_massa_tubuh = $data["berat_badan"] / pow($data["tinggi_badan"] / 100, 2);
 
         $rules = Rule::query()
             ->select("id", "output_parameter_id")
@@ -34,6 +32,7 @@ class KalkulasiController extends Controller
                 "inputs.parameter.variabel:id,nama",
                 "inputs.parameter.fungsi_parameters:id,parameter_id,syarat,formula",
             ])
+            ->orderBy("id")
             ->get()
             ->map(function ($rule) {
                 $rule->inputs = $rule->inputs->keyBy("parameter.nama");
@@ -41,12 +40,12 @@ class KalkulasiController extends Controller
             });
 
         $input_values = [
-            "Umur" => $data["umur"],
             "Berat Badan" => $indeks_massa_tubuh,
-            "Istirahat" => $data["aktivitas"],
+            "Istirahat" => floatval($data["aktivitas"]),
+            "Umur" => floatval($data["umur"]),
         ];
 
-        $data = [];
+        $hasil_kalkulasis = collect();
 
         foreach ($rules as $rule) {
             $temp = [];
@@ -57,19 +56,21 @@ class KalkulasiController extends Controller
                     ]);
             }
 
-            $data[] = [
-                "inputs" => $temp,
-                "alpha" => min($temp),
-            ];
-            // foreach ($input_values as $key => $value) {
+            $alfa_predikat = min($temp);
+            $zi = $rule->output_parameter->selesaikanPersamaan($alfa_predikat);
 
-            // }
+            $hasil_kalkulasis[] = [
+                "inputs" => $temp,
+                "alfa_predikat" => $alfa_predikat,
+                "zi" => $zi,
+                "alfa_predikat_kali_zi" => $alfa_predikat * $zi,
+            ];
         }
 
+        $total_alfa_predikat = $hasil_kalkulasis->sum("alfa_predikat");
+        $total_alfa_predikat_kali_zi = $hasil_kalkulasis->sum("alfa_predikat_kali_zi");
+        $hasil = $total_alfa_predikat_kali_zi / $total_alfa_predikat;
 
-        // return $rules->take(4);
-
-        // return view("welcome");
-        return $data;
+        return view("kalkulasi.show", compact("hasil_kalkulasis", "input_values", "total_alfa_predikat", "total_alfa_predikat_kali_zi", "hasil"));
     }
 }

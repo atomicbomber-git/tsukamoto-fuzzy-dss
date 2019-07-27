@@ -63,7 +63,7 @@ class RuleSeeder extends Seeder
         ["inputs" => ["Normal", "Ringan", "Parobaya"], "output" => "Banyak"],
         ["inputs" => ["Normal", "Ringan", "Tua"], "output" => "Banyak"],
         ["inputs" => ["Normal", "Ringan", "Sangat Tua"], "output" => "Banyak"],
-        ["inputs" => ["Normal", "Sedang", "Muda"], "output" => "Sedikit"],
+        ["inputs" => ["Normal", "Sedang", "Muda"], "output" => "Banyak"],
         ["inputs" => ["Normal", "Sedang", "Parobaya"], "output" => "Banyak"],
         ["inputs" => ["Normal", "Sedang", "Tua"], "output" => "Sedikit"],
         ["inputs" => ["Normal", "Sedang", "Sangat Tua"], "output" => "Sedikit"],

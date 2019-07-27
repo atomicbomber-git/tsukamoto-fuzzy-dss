@@ -28,6 +28,7 @@ class RuleController extends Controller
                 "inputs.parameter:id,nama,variabel_id",
                 "output_parameter:id,nama",
             ])
+            ->orderBy("id")
             ->get()
             ->map(function ($rule) {
                 $rule->inputs = $rule->inputs->keyBy("parameter.variabel_id");

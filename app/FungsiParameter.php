@@ -41,6 +41,6 @@ class FungsiParameter extends Model
 
         } while ($new_distance > 0.0000000000001);
 
-        return $guess_value;
+        return round($guess_value, 4);
     }
 }

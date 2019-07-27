@@ -22,14 +22,15 @@ class Parameter extends Model
 
         $value = null;
         foreach ($this->fungsi_parameters as $fungsi_parameter) {
-            if ($fungsi_parameter->periksaSyarat(["x" => 55])) {
+            if ($fungsi_parameter->periksaSyarat($arguments)) {
                 $value = $fungsi_parameter->evaluasiNilai($arguments);
                 break;
             }
         }
 
         if ($value === null) {
-            throw new \Exception("No matching FungsiParameter syarat found.");
+            $value = 0;
+            // throw new \Exception("No matching FungsiParameter syarat found.");
         }
 
         return $value;
@@ -43,6 +44,7 @@ class Parameter extends Model
         foreach ($this->fungsi_parameters as $fungsi_parameter) {
             try {
                 $value = $fungsi_parameter->selesaikanPersamaan($nilai);
+                break;
             } catch (\Throwable $exception) {
                 /* Ignore exceptions */
             }
