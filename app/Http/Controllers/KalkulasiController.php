@@ -3,24 +3,35 @@
 namespace App\Http\Controllers;
 
 use App\Rule;
+use App\MesinInferensi;
+use Illuminate\Support\Str;
 
 class KalkulasiController extends Controller
 {
+    private $mesinInferensi;
+
+    public function __construct(MesinInferensi $mesinInferensi)
+    {
+        $this->mesinInferensi = $mesinInferensi;
+    }
+
+    private function getInputs() {
+        return collect($this->mesinInferensi->namaInputs())->mapWithKeys(function ($namaInput) {
+            return [$namaInput => Str::snake($namaInput)];
+        });
+    }
+
     public function create()
     {
-        return view("kalkulasi.create");
+        $inputs = $this->getInputs();
+        return view("kalkulasi.create", compact("inputs"));
     }
 
     public function show()
     {
-        $data = $this->validate(request(), [
-            "umur" => "required|numeric|gte:1,lte:200",
-            "berat_badan" => "required|numeric|gte:1,lte:1000",
-            "tinggi_badan" => "required|numeric|gte:1,lte:1000",
-            "aktivitas" => "required|numeric|gte:1,lte:20",
-        ]);
-
-        $indeks_massa_tubuh = $data["berat_badan"] / pow($data["tinggi_badan"] / 100, 2);
+        $data = $this->validate(request(), $this->getInputs()->mapWithKeys(function ($inputVarname) {
+            return [$inputVarname => "required"];
+        })->toArray());
 
         $rules = Rule::query()
             ->select("id", "output_parameter_id")
@@ -40,9 +51,8 @@ class KalkulasiController extends Controller
             });
 
         $input_values = [
-            "Berat Badan" => $indeks_massa_tubuh,
-            "Istirahat" => floatval($data["aktivitas"]),
-            "Umur" => floatval($data["umur"]),
+            "Berat Badan" => $data["berat_badan"],
+            "Kreatinin" => $data["kreatinin"],
         ];
 
         $hasil_kalkulasis = collect();
@@ -55,6 +65,8 @@ class KalkulasiController extends Controller
                         "x" => $input_values[$input->parameter->variabel->nama]
                     ]);
             }
+
+            dump($temp);
 
             $alfa_predikat = min($temp);
             $zi = $rule->output_parameter->selesaikanPersamaan($alfa_predikat);

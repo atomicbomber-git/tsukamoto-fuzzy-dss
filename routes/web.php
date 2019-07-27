@@ -17,13 +17,7 @@ use App\Http\Controllers\FungsiController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Auth::routes();
-
-// Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/home', function () {
     return redirect()->route('variabel.index');
@@ -59,6 +53,9 @@ Route::group(['prefix' => '/fungsi', 'as' => 'fungsi.'], function() {
 
 Route::group(['prefix' => '/rule', 'as' => 'rule.'], function() {
     Route::get('/index', [RuleController::class, 'index'])->name('index');
+    Route::get('/create', [RuleController::class, 'create'])->name('create');
+    Route::post('/store', [RuleController::class, 'store'])->name('store');
+    Route::get('/delete/{rule}', [RuleController::class, 'delete'])->name('delete');
 });
 
 Route::group(['prefix' => '/kalkulasi', 'as' => 'kalkulasi.'], function() {

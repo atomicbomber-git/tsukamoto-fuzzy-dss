@@ -63,8 +63,10 @@
         </tfoot>
     </table>
 
+    @inject('mesinInferensi', 'App\MesinInferensi')
+
     <p class="text-2xl mt-5">
-        Rekomendasi Jumlah Kalori Harian = {{ $total_alfa_predikat_kali_zi }} / {{ $total_alfa_predikat }} =
-        <span class="text-red-900 font-bold"> {{ $hasil }} </span> kkal / hari
+        {{ $mesinInferensi->namaMesin() }} = {{ $total_alfa_predikat_kali_zi }} / {{ $total_alfa_predikat }} =
+        <span class="text-red-900 font-bold"> {{ $hasil }} </span>
     </p>
 @endsection

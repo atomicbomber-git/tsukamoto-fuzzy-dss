@@ -12,53 +12,53 @@
         </ol>
     </nav>
 
+    @include('shared.alert')
+
     <h1 class="text-2xl font-bold mb-5"> Rule </h1>
 
-    <table class="border">
-        <thead class="font-semibold bg-red-700 text-gray-100">
-            <tr>
-                <th class="px-1 text-center w-10"> # </th>
+    <div class="inline-block">
+        <div class="flex justify-end my-3">
+            <a href="{{ route('rule.create') }}" class="inline-block  bg-teal-500 hover:bg-teal-700 text-white text-sm py-1 px-2 rounded">
+                Tambah Rule
+                <i class="fa fa-plus"></i>
+            </a>
+        </div>
 
-                @foreach ($input_variabels as $variabel)
-                <th class="px-3 text-left"> {{ $variabel->nama }} </th>
-                @endforeach
-                <th class="px-3 text-left"> {{ $output_variabel->nama }} </th>
-                <th class="px-3 text-center"> Kendali </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($rules as $rule)
+        <table class="border">
+            <thead class="font-semibold bg-red-700 text-gray-100">
                 <tr>
-                    <td class="border px-1 py-1 text-center"> {{ $loop->iteration }} </td>
+                    <th class="px-1 text-center w-10"> # </th>
+
                     @foreach ($input_variabels as $variabel)
-                    <td class="border px-3 py-1">
-                        {{ $rule->inputs[$variabel->id]->parameter->nama }}
-                    </td>
+                    <th class="px-3 text-left"> {{ $variabel->nama }} </th>
                     @endforeach
-
-                    <td class="border px-3 py-1">
-                        {{ $rule->output_parameter->nama }}
-                    </td>
-
-                    <td class="border px-3 py-1">
-                        -
-                    </td>
+                    <th class="px-3 text-left"> {{ $output_variabel->nama }} </th>
+                    <th class="px-3 text-center"> Kendali </th>
                 </tr>
-            @endforeach
+            </thead>
+            <tbody>
+                @foreach ($rules as $rule)
+                    <tr>
+                        <td class="border px-1 py-1 text-center"> {{ $loop->iteration }} </td>
+                        @foreach ($input_variabels as $variabel)
+                        <td class="border px-3 py-1">
+                            {{ $rule->inputs[$variabel->id]->parameter->nama }}
+                        </td>
+                        @endforeach
 
+                        <td class="border px-3 py-1">
+                            {{ $rule->output_parameter->nama }}
+                        </td>
 
-
-            {{-- @foreach ($variabels as $variabel)
-            <tr>
-                <td class="border px-1 py-1 text-center"> {{ $loop->iteration }} </td>
-                <td class="border px-3 py-1"> {{ $variabel->nama }} </td>
-                <td class="border px-3 py-1 text-center">
-                    <a href="{{ route('variabel-parameter.index', $variabel) }}" class="bg-teal-500 hover:bg-teal-700 text-white text-sm py-1 px-2 rounded">
-                        Parameter
-                    </a>
-                </td>
-            </tr>
-            @endforeach --}}
-        </tbody>
-    </table>
+                        <td class="border px-3 py-1">
+                            <a href="{{ route('rule.delete', $rule) }}" class="inline-block  bg-gray-800 hover:bg-gray-900 text-white text-sm py-1 px-2 rounded">
+                                Hapus
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 @endsection

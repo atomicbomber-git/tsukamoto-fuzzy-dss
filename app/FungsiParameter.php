@@ -34,6 +34,11 @@ class FungsiParameter extends Model
         $step = $initial_step;
         do {
             $current_distance = abs($this->evaluasiNilai(["x" => $guess_value]) - $nilai);
+
+            if ($current_distance === 0) {
+                return $guess_value;
+            };
+
             $new_distance = abs($this->evaluasiNilai(["x" => ($guess_value + $step)]) - $nilai);
 
             if ($new_distance < $current_distance) {
