@@ -55,6 +55,8 @@ Route::group(['prefix' => '/rule', 'as' => 'rule.'], function() {
     Route::get('/index', [RuleController::class, 'index'])->name('index');
     Route::get('/create', [RuleController::class, 'create'])->name('create');
     Route::post('/store', [RuleController::class, 'store'])->name('store');
+    Route::get('/edit/{rule}', [RuleController::class, 'edit'])->name('edit');
+    Route::post('/update/{rule}', [RuleController::class, 'update'])->name('update');
     Route::get('/delete/{rule}', [RuleController::class, 'delete'])->name('delete');
 });
 

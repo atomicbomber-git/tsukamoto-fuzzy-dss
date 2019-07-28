@@ -51,6 +51,12 @@
                         </td>
 
                         <td class="border px-3 py-1">
+                            <a href="{{ route('rule.edit', $rule) }}" class="inline-block  bg-gray-500 hover:bg-gray-700 text-white text-sm py-1 px-2 rounded">
+                                Ubah
+                                <i class="fa fa-pencil"></i>
+                            </a>
+
+
                             <a href="{{ route('rule.delete', $rule) }}" class="inline-block  bg-gray-800 hover:bg-gray-900 text-white text-sm py-1 px-2 rounded">
                                 Hapus
                                 <i class="fa fa-trash"></i>
