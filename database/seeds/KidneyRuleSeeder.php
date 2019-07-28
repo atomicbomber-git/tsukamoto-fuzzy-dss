@@ -11,12 +11,12 @@ class KidneyRuleSeeder extends Seeder
         1 => "Kreatinin" ,
     ];
 
-    const OUTPUT_VARIABLE_NAME = "Diet";
+    const OUTPUT_VARIABLE_NAME = "Protein";
 
     const RULES = [
-        ["inputs" => ["Berat Badan 1", "Dialisis",], "output" => "Diet 1"],
-        ["inputs" => ["Berat Badan 2", "Dialisis",], "output" => "Diet 2"],
-        ["inputs" => ["Berat Badan 3", "Dialisis",], "output" => "Diet 3"],
+        ["inputs" => ["Berat Badan 1", "Dialisis",], "output" => "Protein 1"],
+        ["inputs" => ["Berat Badan 2", "Dialisis",], "output" => "Protein 2"],
+        ["inputs" => ["Berat Badan 3", "Dialisis",], "output" => "Protein 3"],
     ];
 
     /**

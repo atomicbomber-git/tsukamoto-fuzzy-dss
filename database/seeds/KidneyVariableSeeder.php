@@ -47,20 +47,20 @@ class KidneyVariabelSeeder extends Seeder
         ],
 
         [
-            "nama" => "Diet",
+            "nama" => "Protein",
             "parameters" => [
-                "Diet 1" => [
+                "Protein 1" => [
                     ["syarat" => "x <= 32.5", "formula" => "1",],
                     ["syarat" => "x > 32.5", "formula" => "0",],
                 ],
 
-                "Diet 2" => [
+                "Protein 2" => [
                     ["syarat" => "x < 32.5", "formula" => "0",],
                     ["syarat" => "(x >= 32.5) && (x <= 37.5)", "formula" => "1",],
                     ["syarat" => "x > 37.5", "formula" => "0",],
                 ],
 
-                "Diet 3" => [
+                "Protein 3" => [
                     ["syarat" => "x < 37.5", "formula" => "0",],
                     ["syarat" => "x >= 37.5", "formula" => "1",],
                 ],

@@ -6,7 +6,7 @@ class MesinInferensi
 {
     public function namaMesin()
     {
-        return "Diet Penderita Penyakit Ginjal";
+        return "Diet Protein Penderita Penyakit Ginjal";
     }
 
     public function namaInputs()
@@ -19,6 +19,6 @@ class MesinInferensi
 
     public function namaOutput()
     {
-        return "Diet";
+        return "Protein";
     }
 }
