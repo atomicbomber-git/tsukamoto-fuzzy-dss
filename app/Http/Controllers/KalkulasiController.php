@@ -56,7 +56,6 @@ class KalkulasiController extends Controller
         ];
 
         $hasil_kalkulasis = collect();
-
         foreach ($rules as $rule) {
             $temp = [];
             foreach ($rule->inputs as $input) {
@@ -65,8 +64,6 @@ class KalkulasiController extends Controller
                         "x" => $input_values[$input->parameter->variabel->nama]
                     ]);
             }
-
-            dump($temp);
 
             $alfa_predikat = min($temp);
             $zi = $rule->output_parameter->selesaikanPersamaan($alfa_predikat);
