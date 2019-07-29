@@ -30,6 +30,25 @@ class FungsiParameter extends Model
 
     public function selesaikanPersamaan($nilai, $initial_step=1)
     {
+        if ($nilai < 0 || $nilai > 1) {
+            throw new \Exception("Rentang nilai wajib berada diantara `0` dan `1`.");
+        }
+
+        try {
+            /*
+                Try evaluating the formula without any argument to see if
+                it's a formula that doesn't contain any variable
+                like "0" or "1."
+            */
+            $value = $this->evaluasiNilai([]);
+            throw new \Exception("Formula `$this->formula` tidak mengandung variabel `x`.", 122);
+        }
+        catch (\Exception $exception) {
+            if ($exception->getCode() === 122) {
+                throw $exception;
+            }
+        }
+
         $guess_value = 0;
         $step = $initial_step;
         do {
