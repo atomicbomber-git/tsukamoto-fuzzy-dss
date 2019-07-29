@@ -41,4 +41,9 @@ class LoginController extends Controller
     {
         return 'username';
     }
+
+    public function loggedOut()
+    {
+        return redirect()->route('login');
+    }
 }

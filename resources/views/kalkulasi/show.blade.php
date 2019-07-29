@@ -1,3 +1,4 @@
+@inject('mesinInferensi', 'App\MesinInferensi')
 @extends('shared.layout-admin')
 @section('title', 'Hasil Kalkulasi')
 @section('content')
@@ -25,7 +26,7 @@
                 <th class="px-1 text-center w-10"> # </th>
 
                 @foreach ($input_values as $name => $value)
-                <th class="px-3 text-left"> {{ $name }} ({{ $value }}) </th>
+                <th class="px-3 text-left"> μ{{ $name }} ({{ $value }}) </th>
                 @endforeach
 
                 <th class="px-1 text-right"> Alfa Predikat </th>
@@ -63,10 +64,5 @@
         </tfoot>
     </table>
 
-    @inject('mesinInferensi', 'App\MesinInferensi')
-
-    <p class="text-2xl mt-5">
-        {{ $mesinInferensi->namaMesin() }} = {{ $total_alfa_predikat_kali_zi }} / {{ $total_alfa_predikat }} =
-        <span class="text-red-900 font-bold"> {{ $hasil }} </span>
-    </p>
+    @include('shared.kalkulasi.result-component')
 @endsection

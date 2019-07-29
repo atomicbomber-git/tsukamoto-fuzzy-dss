@@ -21,4 +21,14 @@ class MesinInferensi
     {
         return "Protein";
     }
+
+    public function labelOutput()
+    {
+        return "Kadar Protein Harian";
+    }
+
+    public static function satuanOutput()
+    {
+        return "Gram";
+    }
 }

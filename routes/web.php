@@ -2,9 +2,9 @@
 use App\Http\Controllers\VariabelController;
 use App\Http\Controllers\KalkulasiController;
 use App\Http\Controllers\RuleController;
-use App\Parameter;
 use App\Http\Controllers\ParameterController;
 use App\Http\Controllers\FungsiController;
+use App\Http\Controllers\GuestKalkulasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,4 +63,9 @@ Route::group(['prefix' => '/rule', 'as' => 'rule.'], function() {
 Route::group(['prefix' => '/kalkulasi', 'as' => 'kalkulasi.'], function() {
     Route::get('/show', [KalkulasiController::class, 'show'])->name('show');
     Route::get('/create', [KalkulasiController::class, 'create'])->name('create');
+});
+
+Route::group(['prefix' => '/guest-kalkulasi', 'as' => 'guest-kalkulasi.'], function() {
+    Route::get('/show', [GuestKalkulasiController::class, 'show'])->name('show');
+    Route::get('/create', [GuestKalkulasiController::class, 'create'])->name('create');
 });

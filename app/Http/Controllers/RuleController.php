@@ -9,6 +9,11 @@ use App\MesinInferensi;
 
 class RuleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware("auth");
+    }
+
     public function index()
     {
         $mesinInferensi = app(MesinInferensi::class);

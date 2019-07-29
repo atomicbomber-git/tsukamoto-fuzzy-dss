@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Rule;
 use App\MesinInferensi;
 use Illuminate\Support\Str;
+use App\Rule;
 
-class KalkulasiController extends Controller
+class GuestKalkulasiController extends Controller
 {
     private $mesinInferensi;
 
     public function __construct(MesinInferensi $mesinInferensi)
     {
-        $this->middleware("auth");
         $this->mesinInferensi = $mesinInferensi;
     }
 
@@ -25,7 +24,7 @@ class KalkulasiController extends Controller
     public function create()
     {
         $inputs = $this->getInputs();
-        return view("kalkulasi.create", compact("inputs"));
+        return view("guest-kalkulasi.create", compact("inputs"));
     }
 
     public function show()
@@ -79,11 +78,8 @@ class KalkulasiController extends Controller
 
         $total_alfa_predikat = $hasil_kalkulasis->sum("alfa_predikat");
         $total_alfa_predikat_kali_zi = $hasil_kalkulasis->sum("alfa_predikat_kali_zi");
+        $hasil = $total_alfa_predikat_kali_zi / $total_alfa_predikat;
 
-        $hasil = $total_alfa_predikat != 0 ?
-            $total_alfa_predikat_kali_zi / $total_alfa_predikat :
-            0;
-
-        return view("kalkulasi.show", compact("hasil_kalkulasis", "input_values", "total_alfa_predikat", "total_alfa_predikat_kali_zi", "hasil"));
+        return view("guest-kalkulasi.show", compact("hasil_kalkulasis", "input_values", "total_alfa_predikat", "total_alfa_predikat_kali_zi", "hasil"));
     }
 }

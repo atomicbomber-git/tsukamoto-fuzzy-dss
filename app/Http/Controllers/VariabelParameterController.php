@@ -7,6 +7,11 @@ use App\Variabel;
 
 class VariabelParameterController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware("auth");
+    }
+
     public function index(Variabel $variabel)
     {
         $variabel->load("parameters:id,variabel_id,nama");

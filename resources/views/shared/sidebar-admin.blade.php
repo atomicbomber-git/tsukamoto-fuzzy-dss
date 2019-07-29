@@ -19,4 +19,15 @@
             <a href="{{ route('kalkulasi.create') }}"> Kalkulasi </a>
         </li>
     </ul>
+
+    <form method="POST" action="{{ route('logout') }}">
+        @csrf
+
+        <button class="mt-10 w-full text-white focus:outline-none focus:shadow-outline text-center bg-gray-900 hover:bg-gray-800 px-2 py-1 rounded font-bold">
+            Log Out
+            <i class="fa fa-sign-out"></i>
+        </button>
+    </form>
+
+
 </nav>
