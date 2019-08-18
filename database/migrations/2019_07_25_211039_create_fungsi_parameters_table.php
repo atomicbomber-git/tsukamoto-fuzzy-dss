@@ -17,8 +17,8 @@ class CreateFungsiParametersTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('parameter_id');
 
-            $table->string('syarat');
-            $table->string('formula');
+            $table->string('syarat')->comment("Syarat yang harus dipenuhi `x` supaya formula berlaku.");
+            $table->string('formula')->comment("Formula yang melambangkan fungsi keanggotaan.");
 
             $table->foreign('parameter_id')
                 ->references('id')

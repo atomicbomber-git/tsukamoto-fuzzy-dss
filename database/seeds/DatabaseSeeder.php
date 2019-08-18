@@ -14,5 +14,6 @@ class DatabaseSeeder extends Seeder
         $this->call(AdminSeeder::class);
         $this->call(KidneyVariabelSeeder::class);
         $this->call(KidneyRuleSeeder::class);
+        $this->call(SaranSeeder::class);
     }
 }

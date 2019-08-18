@@ -5,6 +5,7 @@ use App\Http\Controllers\RuleController;
 use App\Http\Controllers\ParameterController;
 use App\Http\Controllers\FungsiController;
 use App\Http\Controllers\GuestKalkulasiController;
+use App\Http\Controllers\SaranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,4 +69,11 @@ Route::group(['prefix' => '/kalkulasi', 'as' => 'kalkulasi.'], function() {
 Route::group(['prefix' => '/guest-kalkulasi', 'as' => 'guest-kalkulasi.'], function() {
     Route::get('/show', [GuestKalkulasiController::class, 'show'])->name('show');
     Route::get('/create', [GuestKalkulasiController::class, 'create'])->name('create');
+});
+
+Route::group(['prefix' => '/saran', 'as' => 'saran.'], function() {
+    Route::get('/index', [SaranController::class, 'index'])->name('index');
+    Route::get('/edit/{saran}', [SaranController::class, 'edit'])->name('edit');
+    Route::post('/update/{saran}', [SaranController::class, 'update'])->name('update');
+    Route::post('/delete/{saran}', [SaranController::class, 'delete'])->name('delete');
 });

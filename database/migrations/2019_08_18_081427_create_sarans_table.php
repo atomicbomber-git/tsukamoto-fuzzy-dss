@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVariabelsTable extends Migration
+class CreateSaransTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,20 @@ class CreateVariabelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('variabels', function (Blueprint $table) {
+        Schema::create('sarans', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string("nama")->unique()
-                ->comment("Nama dari variabel linguistik.");
+
+            $table->unsignedBigInteger('variabel_id');
+
+            $table->double('batas_bawah');
+            $table->double('batas_atas');
+
+            $table->longText('konten');
+
             $table->timestamps();
+            $table->foreign('variabel_id')
+                ->references('id')
+                ->on('variabels');
         });
     }
 
@@ -28,6 +37,6 @@ class CreateVariabelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('variabels');
+        Schema::dropIfExists('sarans');
     }
 }

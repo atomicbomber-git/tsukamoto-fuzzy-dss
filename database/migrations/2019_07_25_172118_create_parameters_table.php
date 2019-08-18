@@ -16,7 +16,7 @@ class CreateParametersTable extends Migration
         Schema::create('parameters', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('variabel_id');
-            $table->string('nama');
+            $table->string('nama')->comment("Nama parameter dari variabel linguistik.");
             $table->timestamps();
 
             $table->unique(['variabel_id', 'nama']);

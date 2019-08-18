@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Rule;
 use App\MesinInferensi;
+use App\Saran;
 use Illuminate\Support\Str;
 
 class KalkulasiController extends Controller
@@ -84,6 +85,19 @@ class KalkulasiController extends Controller
             $total_alfa_predikat_kali_zi / $total_alfa_predikat :
             0;
 
-        return view("kalkulasi.show", compact("hasil_kalkulasis", "input_values", "total_alfa_predikat", "total_alfa_predikat_kali_zi", "hasil"));
+        $saran = Saran::query()
+            ->select("konten")
+            ->where("batas_bawah", "<=", $hasil)
+            ->where("batas_atas", ">=", $hasil)
+            ->value("konten");
+
+        return view("kalkulasi.show", compact(
+            "hasil_kalkulasis",
+            "input_values",
+            "total_alfa_predikat",
+            "total_alfa_predikat_kali_zi",
+            "hasil",
+            "saran",
+        ));
     }
 }
