@@ -14,9 +14,12 @@ class KidneyRuleSeeder extends Seeder
     const OUTPUT_VARIABLE_NAME = "Protein";
 
     const RULES = [
-        ["inputs" => ["Berat Badan 1", "Dialisis",], "output" => "Protein 1"],
-        ["inputs" => ["Berat Badan 2", "Dialisis",], "output" => "Protein 2"],
-        ["inputs" => ["Berat Badan 3", "Dialisis",], "output" => "Protein 3"],
+        ["inputs" => ["Berat Badan 1", "Kronik",], "output" => "Protein 1"],
+        ["inputs" => ["Berat Badan 2", "Kronik",], "output" => "Protein 2"],
+        ["inputs" => ["Berat Badan 3", "Kronik",], "output" => "Protein 3"],
+        ["inputs" => ["Berat Badan 1", "Dialisis",], "output" => "Protein 4"],
+        ["inputs" => ["Berat Badan 2", "Dialisis",], "output" => "Protein 5"],
+        ["inputs" => ["Berat Badan 3", "Dialisis",], "output" => "Protein 6"],
     ];
 
     /**
