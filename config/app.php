@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => 'Aplikasi Pedoman Diet Penyakit Ginjal',
+    'name' => 'Aplikasi Pedoman Diet Penyakit Ginjal Kronik dan Dialisis',
 
     /*
     |--------------------------------------------------------------------------
