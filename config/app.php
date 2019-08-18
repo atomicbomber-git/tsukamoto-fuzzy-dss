@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => 'Fuzzy Tsukamoto',
+    'name' => 'Aplikasi Pedoman Diet Penyakit Ginjal',
 
     /*
     |--------------------------------------------------------------------------
