@@ -70,7 +70,7 @@ class KidneyVariabelSeeder extends Seeder
 
                 "Protein 3" => [
                     ["syarat" => "x < 37.5", "formula" => "0",],
-                    ["syarat" => "(x >= 37.5) && (x <= 40)", "formula" => "(40 - x) / (40 - 37.5)",],
+                    ["syarat" => "(x >= 37.5) && (x <= 40)", "formula" => "(x - 37.5) / (40 - 37.5)",],
                     ["syarat" => "x >= 40", "formula" => "1",],
                 ],
 
