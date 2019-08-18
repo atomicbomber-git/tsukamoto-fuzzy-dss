@@ -15,15 +15,15 @@ class KidneyVariabelSeeder extends Seeder
                 ],
 
                 "Berat Badan 2" => [
-                    ["syarat" => "x < 57.5", "formula" => "0",],
-                    ["syarat" => "(x >= 57.5) && (x <= 60)", "formula" => "(x - 57.5) / (60 - 57.5)",],
-                    ["syarat" => "(x >= 60) && (x <= 62.5)", "formula" => "(62.5 - x) / (62.5 - 60)",],
-                    ["syarat" => "x > 62.5", "formula" => "0",],
+                    ["syarat" => "x < 55", "formula" => "0",],
+                    ["syarat" => "(x >= 55) && (x <= 60)", "formula" => "(x - 55) / (60 - 55)",],
+                    ["syarat" => "(x >= 60) && (x <= 65)", "formula" => "(65 - x) / (65 - 60)",],
+                    ["syarat" => "x > 65", "formula" => "0",],
                 ],
 
                 "Berat Badan 3" => [
-                    ["syarat" => "x < 62.5", "formula" => "0",],
-                    ["syarat" => "(x >= 62.5) && (x < 65)", "formula" => "(65 - x) / (65 - 62.5)",],
+                    ["syarat" => "x < 60", "formula" => "0",],
+                    ["syarat" => "(x >= 60) && (x < 65)", "formula" => "(x - 60) / (65 - 60)",],
                     ["syarat" => "x >= 65", "formula" => "1",],
                 ],
             ]
@@ -88,8 +88,8 @@ class KidneyVariabelSeeder extends Seeder
                 ],
 
                 "Protein 6" => [
-                    ["syarat" => "x < 65", "formula" => "0",],
-                    ["syarat" => "(x >= 65) && (x <= 70)", "formula" => "(x - 65) / (70 - 65)",],
+                    ["syarat" => "x < 67.5", "formula" => "0",],
+                    ["syarat" => "(x >= 67.5) && (x <= 70)", "formula" => "(x - 67.5) / (70 - 67.5)",],
                     ["syarat" => "x >= 70", "formula" => "1",],
                 ],
             ]
