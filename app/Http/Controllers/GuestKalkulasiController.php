@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\MesinInferensi;
 use Illuminate\Support\Str;
 use App\Rule;
+use App\Saran;
 
 class GuestKalkulasiController extends Controller
 {
@@ -79,7 +80,15 @@ class GuestKalkulasiController extends Controller
         $total_alfa_predikat = $hasil_kalkulasis->sum("alfa_predikat");
         $total_alfa_predikat_kali_zi = $hasil_kalkulasis->sum("alfa_predikat_kali_zi");
         $hasil = $total_alfa_predikat_kali_zi / $total_alfa_predikat;
+        $saran = Saran::getFromValue($hasil);
 
-        return view("guest-kalkulasi.show", compact("hasil_kalkulasis", "input_values", "total_alfa_predikat", "total_alfa_predikat_kali_zi", "hasil"));
+        return view("guest-kalkulasi.show", compact(
+            "hasil_kalkulasis",
+            "input_values",
+            "total_alfa_predikat",
+            "total_alfa_predikat_kali_zi",
+            "hasil",
+            "saran",
+        ));
     }
 }

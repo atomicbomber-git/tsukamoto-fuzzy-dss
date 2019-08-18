@@ -9,6 +9,9 @@
         <li class="hover:bg-red-100">
             <a href="{{ route('rule.index') }}"> Rule </a>
         </li>
+        <li class="hover:bg-red-100">
+            <a href="{{ route('saran.index') }}"> Saran </a>
+        </li>
     </ul>
 
     <div class="font-bold text-red-900 text-lg tracking-wide">

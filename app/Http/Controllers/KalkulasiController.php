@@ -85,11 +85,7 @@ class KalkulasiController extends Controller
             $total_alfa_predikat_kali_zi / $total_alfa_predikat :
             0;
 
-        $saran = Saran::query()
-            ->select("konten")
-            ->where("batas_bawah", "<=", $hasil)
-            ->where("batas_atas", ">=", $hasil)
-            ->value("konten");
+        $saran = Saran::getFromValue($hasil);
 
         return view("kalkulasi.show", compact(
             "hasil_kalkulasis",

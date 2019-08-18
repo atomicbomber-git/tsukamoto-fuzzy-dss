@@ -6,5 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Saran extends Model
 {
-    //
+    public $fillable = [
+        "batas_atas",
+        "batas_bawah",
+        "konten",
+    ];
+
+    public static function getFromValue($value)
+    {
+        return Saran::query()
+            ->select("konten")
+            ->where("batas_bawah", "<=", $value)
+            ->where("batas_atas", ">=", $value)
+            ->value("konten");
+    }
 }
