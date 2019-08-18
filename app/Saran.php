@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Saran extends Model
 {
     public $fillable = [
+        "variabel_id",
         "batas_atas",
         "batas_bawah",
         "konten",

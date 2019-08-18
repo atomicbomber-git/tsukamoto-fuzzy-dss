@@ -56,7 +56,6 @@
                                 <i class="fa fa-pencil"></i>
                             </a>
 
-
                             <a href="{{ route('rule.delete', $rule) }}" class="inline-block  bg-gray-800 hover:bg-gray-900 text-white text-sm py-1 px-2 rounded">
                                 Hapus
                                 <i class="fa fa-trash"></i>

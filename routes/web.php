@@ -73,6 +73,8 @@ Route::group(['prefix' => '/guest-kalkulasi', 'as' => 'guest-kalkulasi.'], funct
 
 Route::group(['prefix' => '/saran', 'as' => 'saran.'], function() {
     Route::get('/index', [SaranController::class, 'index'])->name('index');
+    Route::get('/create', [SaranController::class, 'create'])->name('create');
+    Route::post('/store', [SaranController::class, 'store'])->name('store');
     Route::get('/edit/{saran}', [SaranController::class, 'edit'])->name('edit');
     Route::post('/update/{saran}', [SaranController::class, 'update'])->name('update');
     Route::post('/delete/{saran}', [SaranController::class, 'delete'])->name('delete');
