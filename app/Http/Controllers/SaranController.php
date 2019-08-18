@@ -11,7 +11,7 @@ class SaranController extends Controller
     public function index()
     {
         $sarans = Saran::query()
-            ->select("id", "batas_atas", "batas_bawah", "konten")
+            ->select("id", "batas_atas", "batas_bawah")
             ->get();
 
         return view("saran.index", compact("sarans"));
@@ -27,7 +27,7 @@ class SaranController extends Controller
         $data = $this->validate(request(), [
             "batas_atas" => ["required", "numeric", "gte:0"],
             "batas_bawah" => ["required", "numeric", "gte:0"],
-            "konten" => ["required", "max:20000"],
+            "konten" => ["required", "max:500000"],
         ]);
 
         $mesinInferensi = app(MesinInferensi::class);
@@ -47,6 +47,7 @@ class SaranController extends Controller
 
     public function edit(Saran $saran)
     {
+        // return $saran;
         return view("saran.edit", compact("saran"));
     }
 
@@ -55,7 +56,7 @@ class SaranController extends Controller
         $data = $this->validate(request(), [
             "batas_atas" => ["required", "numeric", "gte:0"],
             "batas_bawah" => ["required", "numeric", "gte:0"],
-            "konten" => ["required", "max:20000"],
+            "konten" => ["required", "max:500000"],
         ]);
 
         $saran->update($data);

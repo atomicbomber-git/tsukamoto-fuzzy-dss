@@ -20,7 +20,7 @@
 
     <h1 class="text-2xl font-bold mb-5"> Ubah Saran </h1>
 
-    <div class="w-full max-w-md">
+    <div class="w-full">
         <form method="POST" action="{{ route('saran.update', $saran) }}" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             @csrf
             <div class="mb-2">
@@ -62,7 +62,7 @@
                     type="text"
                     rows="10"
                     class="shadow appearance-none border {{ $errors->has("konten") ? "border-red-500" : "" }} rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                    id="konten" type="konten" placeholder="Konten">{{ old("konten", $saran->konten)}}</textarea>
+                    id="content" type="konten" placeholder="Konten"></textarea>
                     @if ($errors->has("konten"))
                         <p class="text-red-500 text-xs italic"> {{ $errors->first("konten") }} </p>
                     @endif
@@ -75,4 +75,16 @@
             </div>
         </form>
     </div>
+@endsection
+
+@section('extra-scripts')
+    @parent
+    <script>
+    tinyMCE.init(Object.assign(window.tinymce_settings, {
+        content_css: '{{ asset('css/app.css') }}',
+    }))
+    .then(editors => {
+        editors[0].setContent(`{!! old('konten', $saran->konten) !!}`)
+    })
+    </script>
 @endsection

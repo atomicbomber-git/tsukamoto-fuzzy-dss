@@ -29,7 +29,6 @@
                 <th class="px-1 text-center w-10"> # </th>
                 <th class="px-3 text-center"> Batas Bawah </th>
                 <th class="px-3 text-center"> Batas Atas </th>
-                <th class="px-3 text-left" style="width: 25rem"> Konten </th>
                 <th class="px-3 text-center"> Kendali </th>
             </tr>
         </thead>
@@ -39,7 +38,6 @@
                 <td class="border px-1 py-1 text-center"> {{ $loop->iteration }} </td>
                 <td class="border px-3 py-1 text-center"> {{ $saran->batas_bawah }} </td>
                 <td class="border px-3 py-1 text-center"> {{ $saran->batas_atas }} </td>
-                <td class="border px-3 py-1"> {!! $saran->konten !!} </td>
                 <td class="border px-3 py-1 text-center">
                     <a href="{{ route('saran.edit', $saran) }}" class="inline-block  bg-gray-500 hover:bg-gray-700 text-white text-sm py-1 px-2 rounded">
                         Ubah

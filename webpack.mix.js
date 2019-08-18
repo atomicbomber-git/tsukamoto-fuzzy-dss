@@ -12,6 +12,9 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
+    .copy("node_modules/tinymce/themes", "public/js/themes")
+    .copy("node_modules/tinymce/plugins", "public/js/plugins")
+    .copy("node_modules/tinymce/skins", "public/js/skins")
     .postCss('resources/css/app.css', 'public/css', [
         require('tailwindcss'),
     ])
