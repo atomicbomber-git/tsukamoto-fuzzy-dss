@@ -10,15 +10,15 @@ class KidneyVariabelSeeder extends Seeder
             "parameters" => [
                 "Berat Badan 1" => [
                     ["syarat" => "x <= 50", "formula" => "1",],
-                    ["syarat" => "(x >= 50) && (x <= 55)", "formula" => "(x - 50) / (55 - 50)",],
-                    ["syarat" => "x >= 55", "formula" => "0",],
+                    ["syarat" => "(x >= 50) && (x <= 60)", "formula" => "(60 - x) / (60 - 50)",],
+                    ["syarat" => "x >= 60", "formula" => "0",],
                 ],
 
                 "Berat Badan 2" => [
-                    ["syarat" => "x < 55", "formula" => "0",],
-                    ["syarat" => "(x >= 55) && (x <= 60)", "formula" => "(x - 55) / (60 - 55)",],
-                    ["syarat" => "(x >= 60) && (x <= 65)", "formula" => "(65 - x) / (65 - 60)",],
-                    ["syarat" => "x > 65", "formula" => "0",],
+                    ["syarat" => "x < 50", "formula" => "0",],
+                    ["syarat" => "(x >= 50) && (x <= 60)", "formula" => "(x - 50) / (60 - 50)",],
+                    ["syarat" => "(x >= 60) && (x <= 61)", "formula" => "(61 - x) / (61 - 60)",],
+                    ["syarat" => "x > 61", "formula" => "0",],
                 ],
 
                 "Berat Badan 3" => [
@@ -81,15 +81,15 @@ class KidneyVariabelSeeder extends Seeder
                 ],
 
                 "Protein 5" => [
-                    ["syarat" => "x < 62.5", "formula" => "0",],
-                    ["syarat" => "(x >= 62.5) && (x <= 65)", "formula" => "(x - 62.5) / (65 - 62.5)",],
-                    ["syarat" => "(x >= 65) && (x <= 67.5)", "formula" => "(67.5 - x) / (67.5 - 65)",],
-                    ["syarat" => "x > 67.5", "formula" => "0",],
+                    ["syarat" => "x < 60", "formula" => "0",],
+                    ["syarat" => "(x >= 60) && (x <= 65)", "formula" => "(x - 60) / (65 - 60)",],
+                    ["syarat" => "(x >= 65) && (x <= 70)", "formula" => "(70 - x) / (70 - 65)",],
+                    ["syarat" => "x > 70", "formula" => "0",],
                 ],
 
                 "Protein 6" => [
-                    ["syarat" => "x < 67.5", "formula" => "0",],
-                    ["syarat" => "(x >= 67.5) && (x <= 70)", "formula" => "(x - 67.5) / (70 - 67.5)",],
+                    ["syarat" => "x < 65", "formula" => "0",],
+                    ["syarat" => "(x >= 65) && (x <= 70)", "formula" => "(x - 65) / (70 - 65)",],
                     ["syarat" => "x >= 70", "formula" => "1",],
                 ],
             ]
