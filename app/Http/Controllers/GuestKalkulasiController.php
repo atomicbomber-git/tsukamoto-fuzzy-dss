@@ -56,6 +56,8 @@ class GuestKalkulasiController extends Controller
             "Kreatinin" => $data["kreatinin"],
         ];
 
+        $kategori = "Kronik";
+
         $hasil_kalkulasis = collect();
         foreach ($rules as $rule) {
             $temp = [];
@@ -64,6 +66,10 @@ class GuestKalkulasiController extends Controller
                     $input->parameter->evaluasiNilai([
                         "x" => $input_values[$input->parameter->variabel->nama]
                     ]);
+
+                if ($temp[$input->parameter->variabel->nama] == 1 && ($input->parameter->nama == "Dialisis" )) {
+                    $kategori = "Dialisis";
+                }
             }
 
             $alfa_predikat = min($temp);
@@ -89,6 +95,7 @@ class GuestKalkulasiController extends Controller
             "total_alfa_predikat_kali_zi",
             "hasil",
             "saran",
+            "kategori",
         ));
     }
 }

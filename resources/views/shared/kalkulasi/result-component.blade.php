@@ -4,7 +4,7 @@
 </p>
 
 <h2 class="text-2xl font-bold mt-5">
-    Saran Menu Diet
+    Saran Menu Diet untuk Penyakit Ginjal {{ $kategori }}
 </h2>
 
 <p>
