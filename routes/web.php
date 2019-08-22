@@ -25,7 +25,7 @@ Route::get('/home', function () {
 })->name('home');
 
 Route::get('/', function () {
-    return redirect()->route('kalkulasi.create');
+    return redirect()->route('guest-kalkulasi.create');
 });
 
 Route::group(['prefix' => '/variabel', 'as' => 'variabel.'], function() {

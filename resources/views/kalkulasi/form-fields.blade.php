@@ -1,3 +1,13 @@
+<div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 mb-6 px-4 py-3" role="alert">
+    <p class="text-sm">
+        <span class="text-bold">
+            <i class="fa fa-info"></i>
+        </span>
+        Untuk penderita penyakit ginjal dialisis, nilai kreatinin adalah dibawah 15, sedangkan untuk penderita
+        penyakit ginjal kronik, nilai kreatinin berada diatas 15.
+    </p>
+</div>
+
 @foreach ($inputs as $inputName => $inputVarname)
 <div class="mb-2">
     <label class="block text-gray-700 text-sm font-bold mb-2" for="{{ $inputVarname }}">
@@ -9,6 +19,12 @@
         type="text"
         class="shadow appearance-none border {{ $errors->has($inputVarname) ? "border-red-500" : "" }} rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
         id="{{ $inputVarname }}" type="{{ $inputVarname }}" placeholder="{{ $inputName }}" />
+
+        @inject('mesinInferensi', 'App\MesinInferensi')
+        <p class="text-gray-500 text-xs">
+            {{ $mesinInferensi->keteranganInputs()[$inputName] ?? "" }}
+        </p>
+
         @if ($errors->has($inputVarname))
             <p class="text-red-500 text-xs italic"> {{ $errors->first($inputVarname) }} </p>
         @endif

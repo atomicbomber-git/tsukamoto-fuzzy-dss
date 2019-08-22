@@ -17,6 +17,13 @@ class MesinInferensi
         ];
     }
 
+    public function keteranganInputs()
+    {
+        return [
+            "Kreatinin" => "Nilai kreatinin diambil dari hasil uji kreatinin dari pasien."
+        ];
+    }
+
     public function namaOutput()
     {
         return "Protein";
