@@ -30,7 +30,12 @@ class RuleController extends Controller
             ->select("id", "nama")
             ->first();
 
-        $rules = Rule::query()
+        $id_variabel_kreatinin = Variabel::query()
+            ->select("id")
+            ->where("nama", "Kreatinin")
+            ->value("id");
+
+        $rule_groups = Rule::query()
             ->select("id", "output_parameter_id")
             ->with([
                 "inputs:id,rule_id,parameter_id",
@@ -42,9 +47,10 @@ class RuleController extends Controller
             ->map(function ($rule) {
                 $rule->inputs = $rule->inputs->keyBy("parameter.variabel_id");
                 return $rule;
-            });
+            })
+            ->groupBy("inputs.{$id_variabel_kreatinin}.parameter.nama");
 
-        return view("rule.index", compact("input_variabels", "output_variabel", "rules"));
+        return view("rule.index", compact("input_variabels", "output_variabel", "rule_groups"));
     }
 
     public function create()

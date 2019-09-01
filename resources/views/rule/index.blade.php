@@ -24,7 +24,15 @@
             </a>
         </div>
 
-        <table class="border">
+
+        @foreach ($rule_groups as $parameter => $rules)
+
+        <h2 class="text-xl font-bold mb-2">
+            Rule Untuk Kategori Penyakit Ginjal {{ $parameter }}
+        </h2>
+
+
+        <table class="border mb-10">
             <thead class="font-semibold bg-red-700 text-gray-100">
                 <tr>
                     <th class="px-1 text-center w-10"> # </th>
@@ -65,5 +73,7 @@
                 @endforeach
             </tbody>
         </table>
+
+        @endforeach
     </div>
 @endsection
