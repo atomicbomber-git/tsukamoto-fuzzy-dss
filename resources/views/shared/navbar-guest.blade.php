@@ -5,7 +5,7 @@
                 href="{{ route('guest-kalkulasi.create') }}"
                 class="font-semibold text-xl tracking-tight">
                 {{ config('app.name') }}
-            </aclass="font-semibold>
+            </a>
         </div>
         <div class="block lg:hidden">
             <button id="collapse-menu" class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
@@ -16,6 +16,10 @@
             <div class="text-sm lg:flex-grow">
                 <a href="{{ route('login') }}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                     Administrasi
+                </a>
+
+                <a href="{{ route('guest-kalkulasi.create') }}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                    Kalkulasi
                 </a>
             </div>
         </div>
