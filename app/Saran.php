@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Saran extends Model
 {
+    // public $table = "menu_diets";
+
     public $fillable = [
         "variabel_id",
         "batas_atas",

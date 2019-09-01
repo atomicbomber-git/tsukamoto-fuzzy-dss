@@ -1,12 +1,34 @@
-<div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 mb-6 px-4 py-3" role="alert">
-    <p class="text-sm">
-        <span class="text-bold">
-            <i class="fa fa-info"></i>
-        </span>
-        Untuk penderita penyakit ginjal dialisis, nilai kreatinin adalah dibawah 15, sedangkan untuk penderita
-        penyakit ginjal kronik, nilai kreatinin berada diatas 15.
-    </p>
-</div>
+<table class="border w-full mb-10">
+    <thead class="font-semibold bg-blue-700 text-gray-100">
+        <tr>
+            <th class="px-1 text-left">
+                Hasil Tes Kliren Kreatinin
+            </th>
+            <th class="px-3 text-left">
+                Jenis Penyakit Ginjal
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="border px-1 py-1">
+                Dibawah 15 mg/dl
+            </td>
+            <td class="border px-3 py-1">
+                Dialisis
+            </td>
+        </tr>
+
+        <tr>
+            <td class="border px-1 py-1">
+                Diantara 15 - 25 mg/dl
+            </td>
+            <td class="border px-3 py-1">
+                Kronik
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 @foreach ($inputs as $inputName => $inputVarname)
 <div class="mb-2">
