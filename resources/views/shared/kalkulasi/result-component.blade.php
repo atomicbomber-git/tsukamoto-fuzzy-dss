@@ -1,4 +1,4 @@
-<p class="text-2xl mt-5">
+<p class="text-xl mt-5">
     {{ $mesinInferensi->labelOutput() }} =
     <span class="text-red-900 font-bold"> {{ $hasil }} {{ $mesinInferensi->satuanOutput() }} </span>
 </p>

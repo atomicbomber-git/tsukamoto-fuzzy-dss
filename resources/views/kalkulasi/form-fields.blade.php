@@ -1,35 +1,3 @@
-<table class="border w-full mb-10">
-    <thead class="font-semibold bg-blue-700 text-gray-100">
-        <tr>
-            <th class="px-1 text-left">
-                Hasil Tes Kliren Kreatinin
-            </th>
-            <th class="px-3 text-left">
-                Jenis Penyakit Ginjal
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="border px-1 py-1">
-                Dibawah 15 mg/dl
-            </td>
-            <td class="border px-3 py-1">
-                Dialisis
-            </td>
-        </tr>
-
-        <tr>
-            <td class="border px-1 py-1">
-                Diantara 15 - 25 mg/dl
-            </td>
-            <td class="border px-3 py-1">
-                Kronik
-            </td>
-        </tr>
-    </tbody>
-</table>
-
 @foreach ($inputs as $inputName => $inputVarname)
 <div class="mb-2">
     <label class="block text-gray-700 text-sm font-bold mb-2" for="{{ $inputVarname }}">
