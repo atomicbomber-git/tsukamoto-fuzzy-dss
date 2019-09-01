@@ -7,6 +7,8 @@
     <div class="max-w-lg w-full mx-auto mt-5">
         <h1 class="text-2xl font-bold mb-5"> {{ config("app.name") }} </h1>
 
+        @include('shared.image-front')
+
         <div class="shadow-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             <h2 class="text-xl mb-5">
                 Klasifikasi Penyakit Ginjal Berdasarkan Hasil Tes Kliren Kreatinin

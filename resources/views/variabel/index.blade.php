@@ -12,6 +12,8 @@
         </ol>
     </nav>
 
+    @include('shared.image-front')
+
     <h1 class="text-2xl font-bold mb-5"> Variabel </h1>
 
     <table class="border">
