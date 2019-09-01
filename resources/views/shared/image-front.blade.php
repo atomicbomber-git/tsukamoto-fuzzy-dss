@@ -1,4 +1,4 @@
 <figure class="my-3">
-    <img src="{{ config("app.front_image_path") }}">
+    <img src="{{ asset("front.jpeg") }}">
     <figcaption></figcaption>
 </figure>
