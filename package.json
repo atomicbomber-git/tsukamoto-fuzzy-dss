@@ -26,6 +26,6 @@
     "dependencies": {
         "font-awesome": "^4.7.0",
         "tailwindcss": "^1.0.5",
-        "tinymce": "^5.0.13"
+        "tinymce": "^5.2.2"
     }
 }
